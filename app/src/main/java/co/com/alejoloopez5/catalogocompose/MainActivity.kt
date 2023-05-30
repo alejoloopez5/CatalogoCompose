@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.constraintlayout.compose.ConstraintLayout
 import co.com.alejoloopez5.catalogocompose.ui.theme.CatalogoComposeTheme
 
 class MainActivity : ComponentActivity() {
@@ -28,9 +29,55 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    MyColumn()
+                    // MyColumn()
+                    // MyComplexLayout()
+                    // ConstraintExampleGuide()
+                    // ConstraintBarrier()
+                    StatusExample()
                 }
             }
+        }
+    }
+}
+
+
+@Composable
+fun MyComplexLayout(){
+    Column(Modifier.fillMaxSize()) {
+        Box(
+            Modifier
+                .fillMaxWidth()
+                .weight(1f)
+                .background(Color.Cyan), contentAlignment = Alignment.Center){
+            Text(text = "Ejemplo1")
+
+        }
+        Spacer(modifier = Modifier
+            .width(0.dp)
+            .height(30.dp))
+        Row(
+            Modifier
+                .fillMaxWidth()
+                .weight(1f)){
+        Box(modifier = Modifier
+            .weight(1f)
+            .fillMaxHeight()
+            .background(Color.Red), contentAlignment = Alignment.Center){
+            Text(text = "Ejemplo2")
+        }
+        Box(modifier = Modifier
+            .weight(1f)
+            .fillMaxHeight()
+            .background(Color.Green), contentAlignment = Alignment.Center){
+            Text(text = "Ejemplo3")
+        }
+        }
+        Box(
+            Modifier
+                .fillMaxWidth()
+                .weight(1f)
+                .background(Color.Blue), contentAlignment = Alignment.BottomCenter){
+            Text(text = "Ejemplo4")
         }
     }
 }
